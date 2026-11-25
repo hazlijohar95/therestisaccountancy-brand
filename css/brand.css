@@ -9,7 +9,7 @@
 *::before,
 *::after { box-sizing: border-box; min-width: 0; }
 [hidden] { display: none !important; }
-body { margin: 0; font: 400 var(--size-body)/1.55 var(--font-sans); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+body { margin: 0; font: 400 var(--size-body)/1.55 var(--font-sans); overflow-x: clip; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body, .ground { background-color: var(--bg); color: var(--ink); }
 [data-brand] { color: var(--ink); }
 img, svg { max-width: 100%; }
@@ -40,7 +40,7 @@ code, kbd, pre { font-family: var(--font-mono); font-size: .86em; }
 .title { font-size: var(--size-title); }
 .head { font-size: var(--size-head); line-height: 1.08; }
 .italic { font-style: italic; }
-.lead { font-size: var(--size-lead); line-height: 1.45; max-width: 60ch; }
+.lead { font-size: var(--size-lead); line-height: 1.45; max-width: 30em; }
 .small { font-size: var(--size-small); }
 .label { font: 600 var(--size-label)/1.3 var(--font-sans); text-transform: var(--label-case); letter-spacing: var(--label-tracking); }
 .hand { font-family: var(--font-hand); font-weight: 400; letter-spacing: 0; line-height: 1.1; }
@@ -102,10 +102,10 @@ code, kbd, pre { font-family: var(--font-mono); font-size: .86em; }
 /* ---------- Components ---------- */
 /* Buttons sit on --elevation, with a --sheen of light across the top. Hover lifts them by --lift; a press lands them by --press-depth. */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 48px; padding: .65em 1.25em; border: var(--edge) solid color-mix(in srgb, var(--ink) 35%, var(--accent)); border-radius: var(--radius-none); background: linear-gradient(rgb(255 255 255 / var(--sheen)), transparent 55%), var(--accent); color: var(--on-accent); font: 600 1rem/1 var(--font-sans); text-transform: var(--label-case); letter-spacing: var(--label-tracking); text-decoration: none; cursor: pointer; box-shadow: var(--elevation); transition: translate var(--motion-quick) var(--motion-ease), box-shadow var(--motion-quick) var(--motion-ease), background-color var(--motion-quick), color var(--motion-quick); }
-.btn:hover { translate: 0 calc(var(--lift) * -1); background: linear-gradient(rgb(255 255 255 / var(--sheen)), transparent 55%), var(--btn-hover-bg); color: var(--btn-hover-ink); }
+@media (hover: hover) { .btn:hover { translate: 0 calc(var(--lift) * -1); background: linear-gradient(rgb(255 255 255 / var(--sheen)), transparent 55%), var(--btn-hover-bg); color: var(--btn-hover-ink); } }
 .btn:active { translate: var(--press-depth) var(--press-depth); box-shadow: none; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); box-shadow: none; }
-.btn.ghost:hover { background: var(--ink); color: var(--bg); translate: none; box-shadow: none; }
+@media (hover: hover) { .btn.ghost:hover { background: var(--ink); color: var(--bg); translate: none; box-shadow: none; } }
 .btn:disabled { background: transparent; color: var(--ink); border-style: dashed; text-decoration: line-through; cursor: not-allowed; translate: none; box-shadow: none; }
 
 .chip { display: inline-flex; align-items: center; gap: .4em; min-height: 36px; padding: .3em .8em; border: var(--edge) solid var(--ink); font: 600 var(--size-label)/1 var(--font-sans); color: var(--ink); background: transparent; cursor: pointer; }
@@ -131,7 +131,8 @@ code, kbd, pre { font-family: var(--font-mono); font-size: .86em; }
 /* Episode row: the whole row inverts on hover. */
 .ep-list { display: grid; border-top: var(--divider) solid var(--ink); }
 .ep-row { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) auto auto; gap: var(--space-4); align-items: center; padding: var(--space-4) var(--space-3); border-bottom: max(var(--frame), var(--stroke-hair)) solid var(--line); color: inherit; text-decoration: none; transition: background-color var(--motion-quick), color var(--motion-quick); }
-.ep-row:hover, .ep-row:focus-visible { background: var(--ink); color: var(--bg); outline: none; }
+.ep-row:focus-visible { background: var(--ink); color: var(--bg); outline-color: transparent; }
+@media (hover: hover) { .ep-row:hover { background: var(--ink); color: var(--bg); } }
 .ep-row .no { font-size: 2rem; line-height: 1; letter-spacing: -.04em; }
 .ep-row h3 { margin: 0; font: 700 1.15rem/1.2 var(--font-sans); text-wrap: balance; }
 .ep-row .dur { font: 400 var(--size-small)/1 var(--font-pixel); }
@@ -159,7 +160,7 @@ code, kbd, pre { font-family: var(--font-mono); font-size: .86em; }
 .member { position: relative; aspect-ratio: 85.6 / 54; width: 100%; max-width: 440px; padding: 7% 7.5%; display: grid; grid-template-rows: auto 1fr auto; background: var(--color-night); color: var(--color-paper); border: var(--stroke-rule) solid var(--color-paper); outline: var(--stroke-rule) solid var(--color-night); overflow: hidden; transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform var(--motion-settle) var(--motion-ease); }
 .member::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at var(--gx, 30%) var(--gy, 20%), rgb(255 255 255 / .14), transparent 45%); pointer-events: none; }
 .member .logo { width: 62%; }
-.member .who { align-self: end; display: flex; justify-content: space-between; gap: var(--space-3); align-items: end; font-size: clamp(11px, 2.6vw, 14px); }
+.member .who { align-self: end; display: flex; justify-content: space-between; gap: var(--space-3); align-items: end; font-size: clamp(12px, 2.6vw, 14px); }
 .member .who b { display: block; font-size: 1.6em; line-height: 1.1; }
 .member .who span { font-weight: 600; }
 .member .no { font-variant-numeric: tabular-nums; text-align: end; }
@@ -190,7 +191,6 @@ code, kbd, pre { font-family: var(--font-mono); font-size: .86em; }
 .ledger th, .ledger td { padding: var(--space-3) var(--space-2); border-bottom: var(--stroke-hair) solid var(--line); text-align: start; vertical-align: baseline; }
 .ledger thead th { font-weight: 600; font-size: var(--size-label); text-transform: var(--label-case); letter-spacing: var(--label-tracking); border-bottom: var(--stroke-rule) solid var(--ink); }
 .ledger td:not(:first-child), .ledger th:not(:first-child) { text-align: end; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.ledger tbody tr:hover { background: color-mix(in srgb, var(--mark) 45%, transparent); }
 .ledger tfoot td { font-weight: 700; border-bottom: 0; }
 
 @media (prefers-reduced-motion: reduce) {
