@@ -1,0 +1,92 @@
+{
+  "$description": "Cover images: the working paper. Every cover is one piece of evidence taped into an audit file and ticked by the auditor. scripts/cover-prompt.mjs turns this file into the prompt for an image model. {tape} and {redline} resolve from tokens/tokens.json.",
+  "size": {
+    "width": 1536,
+    "height": 1024,
+    "ratio": "3:2"
+  },
+  "brief": "Fine-art editorial cover illustration for an accountancy publication, built like an auditor's working paper. Follow this system precisely.",
+  "layers": {
+    "ground": "A pure black page with very faint ledger ruling in dark charcoal: thin horizontal rules, two or three vertical column rules, and one double rule near the bottom, like the ghost of a ledger sheet. No numbers on it.",
+    "evidence": "Exactly one real object, photographed in hard raking museum light, printed as a cut-out black-and-white photo in coarse halftone (visible round dot screen, film grain, photocopy toner noise, crushed blacks). The cut-out has a clean scissor-cut edge (never torn) and sits on the page rotated two or three degrees.",
+    "fixing": "Exactly ONE short strip of flat calculator-tape yellow {tape} masking tape across one top corner of the cut-out, as if taped into an audit file.",
+    "mark": "Exactly ONE small hand-drawn red-pencil mark in {redline}, either a single audit tick beside the key detail or a single loose circle around it, never both. It looks hand-drawn and slightly imperfect, never digital."
+  },
+  "rules": [
+    "Yellow and red are the only colours; everything else is black-and-white halftone.",
+    "One clear focal point slightly off-centre, at least 50 percent empty space, the evidence no larger than half the frame, calm and expensive, like the cover of a serious design magazine.",
+    "Correct anatomy and physics.",
+    "Absolutely no text, letters, numbers, labels or logos anywhere."
+  ],
+  "topics": {
+    "tax": {
+      "object": "an old steel receipt spike on a small round base, holding a neat stack of paper receipts with no readable text",
+      "mark": "circle",
+      "where": "around the top receipt",
+      "alternatives": [
+        "a rubber date stamp on its pad",
+        "a stack of sealed window envelopes"
+      ]
+    },
+    "audit": {
+      "object": "a vintage brass-rimmed magnifying loupe resting on a ruled ledger page with blank rows",
+      "mark": "tick",
+      "where": "beside one row seen through the lens",
+      "alternatives": [
+        "a filing drawer pulled half open",
+        "a bulldog clip holding a thin sheaf of papers"
+      ]
+    },
+    "finance": {
+      "object": "a 1950s ten-key desktop adding machine with a crank handle on the side and a short curl of paper tape coming out of the top, seen from a low three-quarter angle; clearly an adding machine with a small square keypad, not a typewriter",
+      "mark": "tick",
+      "where": "beside the paper tape",
+      "alternatives": [
+        "neat stacks of old coins",
+        "a steel cash box with its lid open"
+      ]
+    },
+    "data": {
+      "object": "a short cascade of continuous fan-fold computer printout paper with faint alternating grey bands and sprocket holes, falling in neat folds",
+      "mark": "circle",
+      "where": "around one band",
+      "alternatives": [
+        "a fanned stack of punched cards",
+        "a wooden card-index drawer"
+      ]
+    },
+    "ai": {
+      "object": "the elegant hand of an 18th-century brass clockwork automaton, refined and delicate rather than robotic, holding a quill pen",
+      "mark": "circle",
+      "where": "around the nib",
+      "alternatives": [
+        "the exposed brass gear train of an automaton's wrist",
+        "a clockwork bird perched on a ledger"
+      ]
+    },
+    "practice": {
+      "object": "a weathered Hellenistic marble bust of a thoughtful man in three-quarter view, cut out at the shoulders",
+      "mark": "tick",
+      "where": "beside his shoulder",
+      "alternatives": [
+        "a marble hand resting on a closed ledger",
+        "a marble hand offering a plain card"
+      ]
+    },
+    "podcast": {
+      "object": "a 1940s ribbon broadcast microphone on a short chrome desk stand, its cable trailing off",
+      "mark": "tick",
+      "where": "beside the grille",
+      "alternatives": [
+        "a pair of studio headphones resting on a closed ledger",
+        "a reel of quarter-inch tape"
+      ]
+    }
+  },
+  "checks": [
+    "One fixing and one mark. Two strips of tape, or a tick and a circle together, means regenerate.",
+    "Count the hands. Poses with two hands often come out with a third.",
+    "No legible text or numbers. Realistic keypads tend to show digits; look closely.",
+    "The object says the topic without a caption."
+  ]
+}

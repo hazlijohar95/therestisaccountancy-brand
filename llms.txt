@@ -24,6 +24,7 @@
 - [css/brand.css](css/brand.css): the one stylesheet a page needs (loads fonts.css and tokens.css)
 - [assets/logos/catalog.json](assets/logos/catalog.json): every logo file with brand, layout, variant, aspect, bytes and PNG size
 - [broadcast/state.js](broadcast/state.js): the broadcast kit's layouts, segments and URL state; [broadcast/index.html](broadcast/index.html) is its control room
+- [imagery/covers.json](imagery/covers.json): the cover image system (the working paper), its topics and checks; `node scripts/cover-prompt.mjs <topic>` prints a prompt, and assets/covers/ holds a reference per topic
 - [index.html](index.html): the brand guide, showing every class at work, with a cover maker that exports PNGs
 
 ## Logos

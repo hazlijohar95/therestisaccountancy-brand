@@ -23,13 +23,16 @@
     "./logos/catalog.json": "./assets/logos/catalog.json",
     "./logos/*": "./assets/logos/*",
     "./fonts/*": "./assets/fonts/*",
-    "./devices/*": "./assets/devices/*"
+    "./devices/*": "./assets/devices/*",
+    "./covers/*": "./assets/covers/*",
+    "./imagery/covers.json": "./imagery/covers.json"
   },
   "files": [
     "dist",
     "css",
     "tokens",
     "assets",
+    "imagery",
     "llms.txt"
   ],
   "scripts": {
@@ -39,7 +42,8 @@
     "extract:logos": "python3 -I scripts/extract-logos.py",
     "fonts": "python3 -I scripts/fetch-fonts.py",
     "test": "tsc -p tsconfig.json && node --test \"tests/*.test.mjs\"",
-    "dev": "python3 -m http.server 4173"
+    "dev": "python3 -m http.server 4173",
+    "cover": "node scripts/cover-prompt.mjs"
   },
   "peerDependencies": {
     "react": ">=18"

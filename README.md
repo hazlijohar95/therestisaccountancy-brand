@@ -129,3 +129,7 @@ pnpm fonts           # re-download the fonts (Google Fonts, and the geist npm pa
 - Both wordmarks are outlined artwork, and their original typefaces are not in the files. Geist Serif (club display), Anton (podcast display), Gochi Hand, Instrument Sans, Geist Mono (code) and Geist Pixel (podcast timecodes) are open-licence companions, not the logo fonts.
 - The designer's guide sets its headlines in heavy condensed capitals, outlined, so the PDF names no font. Anton is the closest open-licence match.
 - Logo design by Kavindu Sooriya Design; copyright transferred to The Rest Is Accountancy on 6 January 2024.
+
+## Cover images
+
+Covers follow one system, the working paper: a halftone cut-out of one object, taped into a ledger with one strip of tape and ticked once in redline. `pnpm cover <topic>` prints the image-model prompt. The system, the evidence for each topic and the checks are in [imagery/README.md](imagery/README.md), and the reference covers are in `assets/covers/`.
