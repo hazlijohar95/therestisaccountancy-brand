@@ -37,7 +37,7 @@ export function coverPrompt({ topic, object, mark, where }) {
       `FIXING: ${fixing}`,
       `MARK: ${markLayer}`,
       ...covers.rules,
-      `Topic: ${topic}. Evidence: ${object ?? standard.object}. The mark is a single ${chosenMark} ${where ?? (object ? 'beside the key detail' : standard.where)}.`,
+      `Topic: ${topic}. Evidence: ${object ?? standard.object}. The mark is a single ${chosenMark} ${where ?? (object ? (chosenMark === 'circle' ? 'around the key detail' : 'beside the key detail') : standard.where)}.`,
     ].join(' '),
   );
 }

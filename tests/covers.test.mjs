@@ -24,7 +24,8 @@ test('every topic has standard evidence, a mark the system allows, and alternati
 
 test('a cover can swap the evidence and keep the system', () => {
   const prompt = coverPrompt({ topic: 'audit', object: 'a bulldog clip', mark: 'circle' });
-  assert.ok(prompt.includes('Evidence: a bulldog clip. The mark is a single circle beside the key detail.'));
+  assert.ok(prompt.includes('Evidence: a bulldog clip. The mark is a single circle around the key detail.'));
+  assert.ok(coverPrompt({ topic: 'audit', object: 'a bulldog clip', mark: 'tick' }).includes('a single tick beside the key detail.'));
   assert.ok(prompt.includes(covers.layers.ground));
 });
 
